@@ -1,69 +1,40 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import {fontSize, hp, wp} from '../../utils/constant';
 import {colors} from '../../utils/theme';
+import {icons} from '../../assets';
 
 export type State = {
-  id: number;
   name: string;
-  phone: number;
 };
 
-const Header = ({id, name, phone}: State) => {
+const Header = ({name}: State) => {
   return (
-    <View style={styles.container}>
-      <View style={{flex: 1}}>
-        <Text style={styles.total}>Totals</Text>
-        <View style={styles.cardStyle}>
-          <View>
-            <Text style={styles.textStyle}>Silver</Text>
-            <Text style={[styles.valueStyle, {color: colors.red}]}>
-              000 {' Gms'}
-            </Text>
-          </View>
-          <View>
-            <Text style={styles.textStyle}>Gold</Text>
-            <Text style={[styles.valueStyle, {color: colors.green}]}>
-              0000{' Gms'}
-            </Text>
-          </View>
-          <View>
-            <Text style={styles.textStyle}>Amount</Text>
-            <Text style={[styles.valueStyle, {color: colors.greenlight}]}>
-              0000
-            </Text>
-          </View>
-        </View>
+    <View style={styles.nev}>
+      <View style={styles.profileImgView}>
+        <Image style={styles.profileImg} source={icons.search}></Image>
       </View>
+      <Text style={styles.nevText}>{name}</Text>
     </View>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    borderRadius: wp(3),
-    marginBottom: hp(2),
-    paddingVertical: hp(1),
-    marginHorizontal: wp(4.2),
-    paddingHorizontal: wp(4),
-    borderWidth: 5,
-    borderColor: colors.whiteGray,
+  nev: {paddingTop: hp(2), flexDirection: 'row', alignItems: 'center'},
+  profileImgView: {
+    borderColor: colors.blacklight,
+    borderWidth: 3,
+    borderRadius: wp(50),
+    height: wp(9),
+    width: wp(9),
+    marginRight: wp(2),
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  total: {
-    fontSize: fontSize(16),
-    color: colors.black,
-  },
-  textStyle: {
-    fontSize: fontSize(12),
-  },
-  valueStyle: {
-    fontSize: fontSize(13),
-  },
-  cardStyle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: hp(0.5),
+  profileImg: {borderRadius: wp(50), height: wp(5), width: wp(5)},
+  nevText: {
+    fontSize: fontSize(20),
+    fontWeight: 'bold',
+    color: colors.blacklight,
   },
 });
 

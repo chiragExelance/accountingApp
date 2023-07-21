@@ -5,7 +5,7 @@ import {colors} from '../../utils/theme';
 
 export type State = {
   buttonText: string;
-  onPress: any;
+  onPress: () => void;
 };
 
 const ButtonData = ({buttonText, onPress}: State) => {

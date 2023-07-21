@@ -10,9 +10,9 @@ import { colors } from '../../utils/theme';
 
 export type State = {
   placeholder?: string;
-  value?: string;
+  value?: any;
   keyboardType?:any
-  onChangeText?:any
+  onChangeText?:any;
 };
 
 const TextInputData = ({placeholder, value, keyboardType, onChangeText}:State) => {

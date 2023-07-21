@@ -4,12 +4,12 @@ import {fontSize, hp, wp} from '../../utils/constant';
 import {colors} from '../../utils/theme';
 
 export type State = {
-  id: number;
-  name: string;
-  phone: number;
+  silver: number;
+  gold: number;
+  amount: number;
 };
 
-const CardMain = ({id, name, phone}: State) => {
+const CardMain = ({silver, gold, amount}: State) => {
   return (
     <View style={styles.container}>
       <View style={{flex: 1}}>
@@ -18,19 +18,19 @@ const CardMain = ({id, name, phone}: State) => {
           <View>
             <Text style={styles.textStyle}>Silver</Text>
             <Text style={[styles.valueStyle, {color: colors.red}]}>
-              000 {' Gms'}
+              -{silver}{' Gms'}
             </Text>
           </View>
           <View>
             <Text style={styles.textStyle}>Gold</Text>
             <Text style={[styles.valueStyle, {color: colors.green}]}>
-              0000{' Gms'}
+              +{gold}{' Gms'}
             </Text>
           </View>
           <View>
             <Text style={styles.textStyle}>Amount</Text>
             <Text style={[styles.valueStyle, {color: colors.greenlight}]}>
-              0000
+              +{new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(amount)}
             </Text>
           </View>
         </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   total: {
     fontSize: fontSize(16),
-    color: colors.black,
+    fontWeight:'700'
   },
   textStyle: {
     fontSize: fontSize(12),
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: hp(0.5),
+    marginLeft:2
   },
 });
 

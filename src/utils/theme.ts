@@ -13,6 +13,9 @@ export const colors = {
   btnBlue: '#3396F3',
   grey: '#9E9E9E',
   black:"#000",
+  blacklight:"#A4A4A4",
   green:"#008000",
-  greenlight:"#006400"
+  greenlight:"#006400",
+  greyLight:"#5b5b5b",
+  lightGray1:"#851b00",
 };
